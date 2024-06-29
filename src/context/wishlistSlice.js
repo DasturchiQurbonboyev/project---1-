@@ -7,12 +7,11 @@ export const wishlistSlice = createSlice({
     },
     reducers: {
         toggleWishes(state, { payload }) {
-            // console.log(payload, "cdckhabch");
-            let index = state.value.findIndex((el) => el.id === payload.id)
+            let index = state.value.findIndex((el) => el?.id === payload?.id)
             if (index < 0) {
                 state.value = [...state.value, payload]
             } else {
-                state.value = state.value.filter((el) => el.id !== payload.id)
+                state.value = state.value.filter((el) => el?.id !== payload?.id)
             }
             localStorage.setItem("wishlist", JSON.stringify(state.value))
         }

@@ -8,7 +8,6 @@ const Wishlist = () => {
         window.scrollTo(0, 0)
     }, [])
     const wishes = useSelector(state => state.wishlist.value)
-    console.log(wishes);
     return (
         <>
             {(wishes.length > 0 ? true : false) ?

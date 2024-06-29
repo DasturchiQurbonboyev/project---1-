@@ -15,18 +15,18 @@ const Products = ({ data, str, month, all, hoverBtn, wishlistTitle }) => {
     const wishes = useSelector(state => state.wishlist.value)
 
     const dispatch = useDispatch()
-    let products = data.slice(0, all)?.map((el) => <div key={el.id} className='card w-[277px] border p-[14px]      '>
+    let products = data?.slice(0, all)?.map((el) => <div key={el?.id} className='card w-[277px] border p-[14px]      '>
         <div className='relative z-10'>
             {wishlistTitle ? <div className='absolute right-4 top-2 flex flex-col gap-2'>
                 <button onClick={() => dispatch(toggleWishes(el))} className='bg-white flex justify-center items-center rounded-[50%] h-[30px] w-[30px]    '>
                     {
-                        wishes.some(w => w.id == el.id) ?
+                        wishes.some(w => w?.id == el.id) ?
                             <FcLike onClick={() => toast.error("Wishlistdan o'chirildi")} className="size-6" /> :
                             <FaRegHeart onClick={() => toast.success("Wishlistga qo'shildi")} className=' size-6' />
                     }
                 </button>
                 <button onClick={() => dispatch(toggleSingle(el))} className='bg-white flex justify-center items-center rounded-[50%] h-[30px] w-[30px]    '>
-                    <Link to={"./single"}><FaRegEye className=' size-6' /></Link>
+                    <Link to={"/single"}><FaRegEye className=' size-6' /></Link>
 
                 </button>
             </div> :
@@ -37,7 +37,7 @@ const Products = ({ data, str, month, all, hoverBtn, wishlistTitle }) => {
                 </div>}
             <div onClick={() => dispatch(toggleSingle(el))}>
                 <Link to={"/single"}>
-                    <img className='w-full h-[220px] object-cover   ' src={el.thumbnail} alt="" />
+                    <img className='w-full h-[220px] object-cover   ' src={el?.thumbnail} alt="" />
                 </Link>
             </div>
             <div className={`text-center  `}>
@@ -48,9 +48,9 @@ const Products = ({ data, str, month, all, hoverBtn, wishlistTitle }) => {
             </div>
         </div>
         <div>
-            <h2 className='text-[16px]'>{el.title}</h2>
-            <span className='text-[red]'>${el.price}</span>
-            <span className='ml-3 line-through text-[#666]  '>${el.price + 1}</span>
+            <h2 className='text-[16px]'>{el?.title}</h2>
+            <span className='text-[red]'>${el?.price}</span>
+            <span className='ml-3 line-through text-[#666]  '>${el?.price + 1}</span>
         </div>
     </div>)
 

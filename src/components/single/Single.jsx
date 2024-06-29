@@ -10,8 +10,9 @@ import { decCart, incCart } from "../../context/cartSlice";
 const Single = () => {
   const single = useSelector((state) => state.single.value)[0];
   const carts = useSelector((state) => state.cart.value);
-  const count = carts.filter((el) => {
-    if (el.id == single.id) {
+
+  const count = carts?.filter((el) => {
+    if (el.id == single?.id) {
       return el;
     }
   });
@@ -230,7 +231,7 @@ const Single = () => {
                   onClick={() => dispatch(toggleWishes(single))}
                   className="outline-none  group transition-all duration-500 p-4 rounded-full bg-indigo-50 hover:bg-indigo-100 hover:shadow-sm hover:shadow-indigo-300"
                 >
-                  {wishes.some((w) => w.id === single.id) ? (
+                  {wishes.some((w) => w?.id === single?.id) ? (
                     <FaHeart
                       onClick={() => toast.error("Wishlistdan o'chirildi")}
                       size={25}
